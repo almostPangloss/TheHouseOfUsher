@@ -116,6 +116,48 @@ public class Frame1 {
 		frame.getContentPane().add(btnSync);
 	}
 	
+	
+	/************************************************
+	 * I can't figure out what should be the parts, here. 
+	 * Should I have a whole class just for building the list of pics on the hd?
+	 * Should anything with the file names be a class? 
+	 * Should all the downloading happen in one place?
+	 * What even is the downloading object?
+	 * 
+	 *  I want a program that looks at a folder, makes a list of all the pictures in there
+	 *   then goes to the website given to the program, finds the names of the highest rez
+	 *   versions of the last n (10?) pictures, compares that to the list of on-HD pictures
+	 *   to see if they're already downloaded, creates a list of those that aren't yet downloaded
+	 *   then downloads them, and tells the user how many have been DLed.
+	 *   
+	 *   get folder location
+	 *   build list of files in folder
+	 *   build list of URL for last n pics
+	 *   	make sure to accept only pics in list, not youtube links
+	 *   make list of files to be DLed by comparing elements of the first two lists
+	 *   download missing files
+	 *   tell user what happened
+	 *   
+	 *   What are the "objects" here? Is the frame an object, 
+	 *    like a kiosk which does everything needed for me, like an ATM?
+	 *    Or is the frame just a thing upon which sit objects, like each button, 
+	 *    and it's the buttons that are the objects, which have, as part of their behavior, 
+	 *    going to fetch the folder location, and the other doing all the grunt work?
+	 *    Or are the different things actually making things happen the objects?
+	 *    Like a InternetCOnnection object which handles all the traffic to the internet?
+	 *    And another, FileHandling whose job it is to interact with the files on disk
+	 *    to create the lists, and store the data someplace in particular on the harddrive?
+	 *    And another to handle the comparison of the two lists? 
+	 *    
+	 *    Oh, wait, no. Have the internet one make an array of picture names or hashes
+	 *    Have the File one make an array of the same data on disk
+	 *    The button calls those, as well as some 
+	 *    (compare-lists-and-make-a-new-list-of-unique-items) method from somewhere, 
+	 *    and then calls a method to DL the new list of non-matched names' URLs.
+	 *    
+	*/
+	
+	
 	private void setPicLocation(){
 		fileChooser = new JFileChooser();
 		fileChooser.setFileSelectionMode(1);
@@ -142,21 +184,9 @@ public class Frame1 {
 		
 
 		builtList = buildListOfImages("https://apod.nasa.gov/apod/archivepix.html");
-		
-//		for (String i : builtList){
-//			if (i.substring(i.lastIndexOf("/")) != null){
-//				
-//			}
-//		}
-//		
+
 		
 		for (File i : files){			
-			
-//			if ( !(builtList.contains(i.getName()))){
-//				//download image to selectedFile
-//				System.out.println(i.getName() + " wasn't found so I'll try to download it.");
-//				
-//			}
 			
 			if ( min < i.lastModified() ){
 				min = i.lastModified();
@@ -220,7 +250,8 @@ public class Frame1 {
 					if (Pattern.matches(".*[jpg|png|bmp]", image)){
 						builtList.add(image);
 					}						
-					System.out.println("BuiltList item:               " + builtList.get((builtList.size()-1)));
+					System.out.println("BuiltList item:               " 
+					+ builtList.get((builtList.size()-1)));
 					
 				} catch (NullPointerException e) {
 					
@@ -232,7 +263,8 @@ public class Frame1 {
 				listOfPages = doc.selectFirst("b").children();
 				List<String> listAsList = listOfPages.select("a").eachAttr("abs:href");
 				for ( int i = 0; i < 5; i++ ){
-					System.out.println("Element number " + i + ": " + listAsList.get(i).toString()); //Just checking, before we begin
+					System.out.println("Element number " + i + ": " 
+							+ listAsList.get(i).toString()); //Just checking, before we begin
 					//Now you need to parse out each element and re-call this bLOI method
 					buildListOfImages (listAsList.get(i).toString());
 				}
@@ -261,6 +293,3 @@ public class Frame1 {
 	
 
 }
-
-
-
