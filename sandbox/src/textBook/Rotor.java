@@ -1,5 +1,6 @@
 package textBook;
 
+
 public class Rotor {
 
 	public double getShift() {

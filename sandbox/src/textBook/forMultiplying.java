@@ -1,5 +1,6 @@
 package textBook;
 
+
 public class forMultiplying {
 
 	public static void main(String[] args) {

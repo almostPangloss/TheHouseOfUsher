@@ -1,10 +1,12 @@
 package textBook;
 
+
 import java.awt.*;
 
 import javax.swing.JApplet;
 
-public class Sandy extends JApplet {
+@SuppressWarnings("deprecation")
+public class OlympicRings extends JApplet {
 	
 	public void paint(Graphics g) {
 		int cW = 60, wW = 40, s = 5;

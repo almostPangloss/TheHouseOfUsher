@@ -1,5 +1,6 @@
 package textBook;
 
+
 public class forBang {
 
 	public static void main(String[] args) {

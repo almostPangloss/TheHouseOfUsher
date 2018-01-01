@@ -1,7 +1,8 @@
+package textBook;
 /* MetricLength - converts inches to centimeters
    Anderson, Franceschi
 */
-package textBook;
+
 
 public class MetricLength
 {

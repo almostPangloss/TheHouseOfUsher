@@ -1,4 +1,4 @@
-package textBook;
+package fuckingAround;
 
 import java.util.Arrays;
 import java.util.Scanner;

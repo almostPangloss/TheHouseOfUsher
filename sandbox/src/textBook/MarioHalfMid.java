@@ -1,5 +1,6 @@
 package textBook;
 
+
 import java.util.Scanner;
 
 public class MarioHalfMid {
