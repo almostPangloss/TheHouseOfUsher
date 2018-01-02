@@ -18,9 +18,27 @@ import javax.swing.JTextField;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
+/**
+ * DiskImageLibrary
+ *  - getImageIdentifiers
+ *  - getImage
+ *  - getImages
+ *  - putImage
+ * 
+ * APODImageLibrary
+ *  - getImageIdentifiers
+ *  - getImage
+ *  - getImages (if you want)
+ * 
+ * ImageSync - This is all the GUI stuff & and sync code
+ *  + DiskImageLibrary
+ *  + APODImageLibrary
+ *  - syncLibraries
+ *  - Whatever GUI stuff you need
+ */
 
 public class Frame1 {
 
