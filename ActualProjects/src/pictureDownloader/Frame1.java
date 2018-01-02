@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -21,7 +20,6 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Frame1 {
@@ -35,7 +33,7 @@ public class Frame1 {
 	private File selectedFile;
 	private JFileChooser fileChooser;
 	
-	private List<String> builtList = new ArrayList();;
+	private List<String> builtList = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -74,7 +72,9 @@ public class Frame1 {
 		
 		//setPicLocation();     // Even this doesn't work.... Why?
 		
-		selectedFile = new File("C:\\Users\\Warren\\Pictures\\picDown"); //How to make current-location referenced?
+		System.out.println(System.getProperty("user.home"));
+		
+		selectedFile = new File(System.getProperty("user.home") + "\\Pictures\\picDown"); //Now made current-location referenced
 		
 		JButton btnNewButton = new JButton("Browse");
 		btnNewButton.setFont(new Font("Oxygen", Font.PLAIN, 11));
@@ -247,7 +247,6 @@ public class Frame1 {
 		try {
 			Document doc = Jsoup.connect(URL).get();
 			Elements listOfPages;
-			Attributes attributes;
 			String image;
 			
 			if ( !(URL.equals("https://apod.nasa.gov/apod/archivepix.html"))){
