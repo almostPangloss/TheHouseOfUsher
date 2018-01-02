@@ -74,7 +74,7 @@ public class Frame1 {
 		
 		//setPicLocation();     // Even this doesn't work.... Why?
 		
-		selectedFile = new File("C:\\Users\\Warren\\Pictures\\picDown");
+		selectedFile = new File("C:\\Users\\Seth\\Pictures\\picDown");
 		
 		JButton btnNewButton = new JButton("Browse");
 		btnNewButton.setFont(new Font("Oxygen", Font.PLAIN, 11));
@@ -87,7 +87,7 @@ public class Frame1 {
 		frame.getContentPane().add(btnNewButton);
 		
 		txtCuserswarrenpicturespicdown = new JTextField();
-		txtCuserswarrenpicturespicdown.setText("C:\\Users\\Warren\\Pictures\\picDown");
+		txtCuserswarrenpicturespicdown.setText(selectedFile.getPath());
 		txtCuserswarrenpicturespicdown.setBounds(10, 57, 291, 20);
 		frame.getContentPane().add(txtCuserswarrenpicturespicdown);
 		txtCuserswarrenpicturespicdown.setColumns(10);
@@ -191,7 +191,7 @@ public class Frame1 {
 			if ( min < i.lastModified() ){
 				min = i.lastModified();
 				mostRecent = i.getName();
-				//System.out.println("insideIf, min: " + min + " and name: " + i.getName() );
+				System.out.println("insideIf, min: " + min + " and name: " + i.getName() );
 			}
 			System.out.println("\nFile timestamp: " + i.lastModified() +
 					 "\nFilename: " + i.getName());			
@@ -211,7 +211,7 @@ public class Frame1 {
 		
 		ArrayList<Integer> fileHashes = new ArrayList<Integer>();		
 		for (File file : files){
-			fileHashes.add(file.hashCode());
+			fileHashes.add(file.getName().hashCode());
 			System.out.println(file.getName() + " has a hash of " + fileHashes.get(fileHashes.size()-1));
 		}
 		
@@ -222,8 +222,11 @@ public class Frame1 {
 				Connection connection = Jsoup.connect(link);
 				connection.timeout(5000);
 				Connection.Response resultImageResponse = connection.ignoreContentType(true).execute();
-				linkImageHashes.add(resultImageResponse.bodyAsBytes().hashCode());
-				System.out.println(link + " has a hash of " + linkImageHashes.get(linkImageHashes.size()-1));
+				/**/Document resultImageAsDoc = resultImageResponse.parse();
+				System.out.println(resultImageAsDoc.getAllElements());
+				linkImageHashes.add(resultImageResponse.header("title").hashCode());
+				System.out.println(resultImageResponse.header("title")
+						+ " has a hash of " + linkImageHashes.get(linkImageHashes.size()-1));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -246,11 +249,11 @@ public class Frame1 {
 				System.out.println("In True");
 				try{
 					image = doc.select("a").eachAttr("abs:href").get(1);
-					System.out.println("Within True; here's the link: " + image);
+					System.out.println("Within True; link: " + image);
 					if (Pattern.matches(".*[jpg|png|bmp]", image)){
 						builtList.add(image);
 					}						
-					System.out.println("BuiltList item:               " 
+					System.out.println("BuiltList item:          " 
 					+ builtList.get((builtList.size()-1)));
 					
 				} catch (NullPointerException e) {
