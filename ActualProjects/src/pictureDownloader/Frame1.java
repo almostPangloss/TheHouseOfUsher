@@ -155,6 +155,12 @@ public class Frame1 {
 	 *    (compare-lists-and-make-a-new-list-of-unique-items) method from somewhere, 
 	 *    and then calls a method to DL the new list of non-matched names' URLs.
 	 *    
+	 *    Another way:
+	 *    make list of local files
+	 *    get most recent online image
+	 *    compare
+	 *    if image on HD, stop, 
+	 *    else download image and check next image
 	*/
 	
 	
@@ -253,7 +259,7 @@ public class Frame1 {
 					if (Pattern.matches(".*[jpg|png|bmp]", image)){
 						builtList.add(image);
 					}						
-					System.out.println("BuiltList item:          " 
+					System.out.println("BuiltList item:    " 
 					+ builtList.get((builtList.size()-1)));
 					
 				} catch (NullPointerException e) {
@@ -269,6 +275,7 @@ public class Frame1 {
 					System.out.println("Element number " + i + ": " 
 							+ listAsList.get(i).toString()); //Just checking, before we begin
 					//Now you need to parse out each element and re-call this bLOI method
+					System.out.println();
 					buildListOfImages (listAsList.get(i).toString());
 				}
 			}
