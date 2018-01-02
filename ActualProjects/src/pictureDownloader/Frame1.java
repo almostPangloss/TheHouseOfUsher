@@ -6,9 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -16,7 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -49,9 +45,7 @@ public class Frame1 {
 	private JButton btnSync;
 	
 	private File selectedFile;
-	private JFileChooser fileChooser;
-	
-	private List<String> builtList = new ArrayList<>();
+	private JFileChooser fileChooser;	
 
 	/**
 	 * Launch the application.
@@ -127,7 +121,16 @@ public class Frame1 {
 		btnSync = new JButton("Sync");
 		btnSync.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sync();
+//				sync();
+				DiskImageLibrary dil = new DiskImageLibrary(selectedFile);
+				APODImageLibrary ail = new APODImageLibrary();
+				try {
+					ail.getImageIDs();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				System.out.println(">> " + dil.getImageIdentifiers()[0] + " <<");
 			}
 		});
 		btnSync.setBounds(175, 199, 89, 23);
@@ -192,130 +195,130 @@ public class Frame1 {
 		    txtCuserswarrenpicturespicdown.setText(selectedFile.toString());
 		}
 	}
-	
-	private File[] makeFileList(){
-		
-		File[] fileArray = selectedFile.listFiles();
-		
-		return fileArray;
-		
-	}
-	
-	private void sync (){
-		File[] files = makeFileList();
-		String mostRecent = "";
-		long min = 0;
-		
 
-		builtList = buildListOfImages("https://apod.nasa.gov/apod/archivepix.html");
-
-		
-		for (File i : files){			
-			
-			if ( min < i.lastModified() ){
-				min = i.lastModified();
-				mostRecent = i.getName();
-				System.out.println("insideIf, min: " + min + " and name: " + i.getName() );
-			}
-			System.out.println("\nFile timestamp: " + i.lastModified() +
-					           "\nFilename:       " + i.getName());			
-		}
-		System.out.print("\nThe most recently modified file is " + mostRecent + " : " + mostRecent.hashCode() + "\n");
-		
-		
-		System.out.println(builtList.toString()); //********************Giving NullPointer, but why?
-											  // because List<String> isn't meant to be used, but extended, it seems?
-		
-		downloadMissing(files);
-					
-	}
-	
-	private void downloadMissing(File[] files){
-		
-		ArrayList<Integer> fileHashes = new ArrayList<Integer>();		
-		for (File file : files){
-			fileHashes.add(file.getName().hashCode());
-			System.out.println(file.getName() + " has a hash of " + fileHashes.get(fileHashes.size()-1));
-		}
-		
-		
-		ArrayList<Integer> linkImageHashes = new ArrayList<Integer>();
-		for (String link : builtList){
-			try {
-				Connection connection = Jsoup.connect(link);
-				connection.timeout(5000);
-				Connection.Response resultImageResponse = connection.ignoreContentType(true).execute();
-				/**/Document resultImageAsDoc = resultImageResponse.parse();
-				System.out.println(resultImageAsDoc.getAllElements());
-				linkImageHashes.add(resultImageResponse.header("title").hashCode());
-				System.out.println(resultImageResponse.header("title")
-						+ " has a hash of " + linkImageHashes.get(linkImageHashes.size()-1));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-		}
-		
-		// Build list of missing and download them
-	}
-	
-	private List<String> buildListOfImages ( String URL ) {
-		try {
-			Document doc = Jsoup.connect(URL).get();
-			Elements listOfPages;
-			String image;
-			
-			if ( !(URL.equals("https://apod.nasa.gov/apod/archivepix.html"))){
-				System.out.println("In True");
-				try{
-					image = doc.select("a").eachAttr("abs:href").get(1);
-					System.out.println("Within True; link: " + image);
-					if (Pattern.matches(".*[jpg|png|bmp]", image)){
-						builtList.add(image);
-					}						
-					System.out.println("BuiltList item:    " 
-					+ builtList.get((builtList.size()-1)));
-					
-				} catch (NullPointerException e) {
-					
-				}			
-
-			} else {
-				System.out.println("In False");
-				
-				listOfPages = doc.selectFirst("b").children();
-				List<String> listAsList = listOfPages.select("a").eachAttr("abs:href");
-				for ( int i = 0; i < 5; i++ ){
-					System.out.println("Element number " + i + ": " 
-							+ listAsList.get(i).toString()); //Just checking, before we begin
-					//Now you need to parse out each element and re-call this bLOI method
-					System.out.println();
-					buildListOfImages (listAsList.get(i).toString());
-				}
-			}
-			
-			
-			
-			System.out.println("End of array builder method.");
-			
-			
-			// image.absUrl(attributeKey);
-			
-			
-			//Trying to split around <br> 
-			//                       <a href="image/
-			// giving the date right before, and the link to the full size image right after
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return builtList;
-		
-	}
+//	private File[] makeFileList(){
+//		
+//		File[] fileArray = selectedFile.listFiles();
+//		
+//		return fileArray;
+//		
+//	}
+//	
+//	private void sync (){
+//		File[] files = makeFileList();
+//		String mostRecent = "";
+//		long min = 0;
+//		
+//
+//		builtList = buildListOfImages("https://apod.nasa.gov/apod/archivepix.html");
+//
+//		
+//		for (File i : files){			
+//			
+//			if ( min < i.lastModified() ){
+//				min = i.lastModified();
+//				mostRecent = i.getName();
+//				System.out.println("insideIf, min: " + min + " and name: " + i.getName() );
+//			}
+//			System.out.println("\nFile timestamp: " + i.lastModified() +
+//					           "\nFilename:       " + i.getName());			
+//		}
+//		System.out.print("\nThe most recently modified file is " + mostRecent + " : " + mostRecent.hashCode() + "\n");
+//		
+//		
+//		System.out.println(builtList.toString()); //********************Giving NullPointer, but why?
+//											  // because List<String> isn't meant to be used, but extended, it seems?
+//		
+//		downloadMissing(files);
+//					
+//	}
+//	
+//	private void downloadMissing(File[] files){
+//		
+//		ArrayList<Integer> fileHashes = new ArrayList<Integer>();		
+//		for (File file : files){
+//			fileHashes.add(file.getName().hashCode());
+//			System.out.println(file.getName() + " has a hash of " + fileHashes.get(fileHashes.size()-1));
+//		}
+//		
+//		
+//		ArrayList<Integer> linkImageHashes = new ArrayList<Integer>();
+//		for (String link : builtList){
+//			try {
+//				Connection connection = Jsoup.connect(link);
+//				connection.timeout(5000);
+//				Connection.Response resultImageResponse = connection.ignoreContentType(true).execute();
+//				/**/Document resultImageAsDoc = resultImageResponse.parse();
+//				System.out.println(resultImageAsDoc.getAllElements());
+//				linkImageHashes.add(resultImageResponse.header("title").hashCode());
+//				System.out.println(resultImageResponse.header("title")
+//						+ " has a hash of " + linkImageHashes.get(linkImageHashes.size()-1));
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
+//			
+//		}
+//		
+//		// Build list of missing and download them
+//	}
+//	
+//	private List<String> buildListOfImages ( String URL ) {
+		//try {
+//			Document doc = Jsoup.connect(URL).get();
+//			Elements listOfPages;
+//			String image;
+//			
+//			if ( !(URL.equals("https://apod.nasa.gov/apod/archivepix.html"))){
+//				System.out.println("In True");
+//				try{
+//			String image = doc.select("a").eachAttr("abs:href").get(1);
+//					System.out.println("Within True; link: " + image);
+//					if (Pattern.matches(".*[jpg|png|bmp]", image)){
+//						builtList.add(image);
+//					}						
+//					System.out.println("BuiltList item:    " 
+//					+ builtList.get((builtList.size()-1)));
+//					
+//				} catch (NullPointerException e) {
+//					
+//				}			
+//
+//			} else {
+//				System.out.println("In False");
+//				
+//				listOfPages = doc.selectFirst("b").children();
+//				List<String> listAsList = listOfPages.select("a").eachAttr("abs:href");
+//				for ( int i = 0; i < 5; i++ ){
+//					System.out.println("Element number " + i + ": " 
+//							+ listAsList.get(i).toString()); //Just checking, before we begin
+//					//Now you need to parse out each element and re-call this bLOI method
+//					System.out.println();
+//					buildListOfImages (listAsList.get(i).toString());
+//				}
+//			}
+//			
+//			
+//			
+//			System.out.println("End of array builder method.");
+//			
+//			
+//			// image.absUrl(attributeKey);
+//			
+//			
+//			//Trying to split around <br> 
+//			//                       <a href="image/
+//			// giving the date right before, and the link to the full size image right after
+//			
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		return builtList;
+//		
+//	}
 	
 
 }
