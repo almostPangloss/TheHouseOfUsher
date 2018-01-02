@@ -74,7 +74,7 @@ public class Frame1 {
 		
 		//setPicLocation();     // Even this doesn't work.... Why?
 		
-		selectedFile = new File("C:\\Users\\Seth\\Pictures\\picDown");
+		selectedFile = new File("C:\\Users\\Warren\\Pictures\\picDown"); //How to make current-location referenced?
 		
 		JButton btnNewButton = new JButton("Browse");
 		btnNewButton.setFont(new Font("Oxygen", Font.PLAIN, 11));
@@ -200,10 +200,9 @@ public class Frame1 {
 				System.out.println("insideIf, min: " + min + " and name: " + i.getName() );
 			}
 			System.out.println("\nFile timestamp: " + i.lastModified() +
-					 "\nFilename: " + i.getName());			
+					           "\nFilename:       " + i.getName());			
 		}
-		System.out.print("\nThe most recently modified file is " + mostRecent + " : ");
-		System.out.println(mostRecent.hashCode());
+		System.out.print("\nThe most recently modified file is " + mostRecent + " : " + mostRecent.hashCode() + "\n");
 		
 		
 		System.out.println(builtList.toString()); //********************Giving NullPointer, but why?
