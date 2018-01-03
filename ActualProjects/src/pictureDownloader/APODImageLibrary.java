@@ -1,13 +1,8 @@
 package pictureDownloader;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -27,7 +22,7 @@ public class APODImageLibrary {
 		URL = "https://apod.nasa.gov/apod/archivepix.html";
 	}
 	
-	public String[] getImageIDs() throws IOException, InterruptedException{
+	public String[][] getImageIDs() throws IOException, InterruptedException{
 		
 		Document doc = Jsoup.connect(URL).get();
 		Elements allImagePageElements;
@@ -45,7 +40,7 @@ public class APODImageLibrary {
 		
 		allImagePageElements = doc.selectFirst("b").children();
 		String[] last10ImageURLs = new String[10];
-		String[] aPODImageArray = new  String[last10ImageURLs.length];
+		String[][] aPODImageArray = new  String[last10ImageURLs.length][2];
 		
 		int cnt = 0;
 		
@@ -55,50 +50,19 @@ public class APODImageLibrary {
 			TimeUnit.SECONDS.sleep(1);
 			String picsHiRezLink = Jsoup.connect(last10ImageURLs[i]).get().select("a").eachAttr("abs:href").get(1);
 			if (picsHiRezLink.contains((CharSequence) "apod")){
-				aPODImageArray[cnt] = picsHiRezLink.substring( picsHiRezLink.lastIndexOf("/") + 1 );
-				System.out.println(cnt + ": " + aPODImageArray[cnt]);
+				// Filename
+				aPODImageArray[cnt][0] = picsHiRezLink.substring( picsHiRezLink.lastIndexOf("/") + 1 );
+				// Image URL
+				aPODImageArray[cnt][1] = picsHiRezLink;
+				System.out.println(cnt + ": " + aPODImageArray[cnt][0]);
 				cnt++;
 			}			
-			
-			// Oops, accidently trimmed off the HTMLs when I didn't even need to be doing anything here
-			// Was trying to get the names of the images
-			//last10ImageNames[i] = last10ImageNames[i].substring(last10ImageNames[i].lastIndexOf("/")+1);
-			
-			//System.out.println(last10ImageURLs[i]);
+		
 		}
-		
-		
-		
-		// For each image description page, this goes in and gets the link to the high res picture
-		// Working, though it looks to be SUPER slow
-		// Add: put just the names in an array, to compare against owned files.
-//		int cnt = 0;
-//		for (String i : last10ImageURLs) {
-//			TimeUnit.SECONDS.sleep(1);
-//			String picsHiRezLink = Jsoup.connect(i).get().select("a").eachAttr("abs:href").get(1);
-//			if (picsHiRezLink.contains((CharSequence) "apod")){
-//				aPODImageArray[cnt] = picsHiRezLink;
-//			}
-//			System.out.println(cnt + ": " + aPODImageArray[cnt]);
-//			cnt++;
-//		}
-//		
-		
-
-//		Same as above, just looking
-//		Files.newBufferedWriter(file).write(listAsList.toString());
-		
-		
-		
-		
-		try{
-			
-			
-		} catch (NullPointerException e) {
-			
-		}
-		
 		return aPODImageArray;
+	}
+	
+	public void downloadImages(String[] toDownload) {
 		
 	}
 	

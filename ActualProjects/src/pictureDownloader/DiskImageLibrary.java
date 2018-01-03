@@ -1,7 +1,12 @@
 package pictureDownloader;
 
-import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /*
  *  - getImageIdentifiers
@@ -35,11 +40,23 @@ public class DiskImageLibrary {
 		
 	}
 	
-	//private for now?
-	private void putImage(){
+	public void downloadMissing(String[][] missingImageURLs) throws MalformedURLException, IOException {
 		
 		
+		try {
+			for (String[] s : missingImageURLs) {
+				if (!(s[1] == null)) {
+					System.out.println("s[1]: >" + s[1] + "<");
+					InputStream in = new URL(s[1]).openStream();
+					Files.copy(in, Paths.get(selectedFile.getPath() + "\\" + s[0]));
+				}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
+
 
 }
