@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class FermiGame {
 	
-	private static int ans1, ans2, ans3, guesses;
-	private static int[] ans;
+	private int ans1, ans2, ans3, guesses;
+	private int[] ans;
 	
 	public FermiGame() {
 		ans = new int[] {0,0,0};
@@ -71,8 +71,7 @@ public class FermiGame {
 		String result = "";
 		int[] picks = {0,0,0};
 
-		try {
-			Scanner scan = new Scanner ( System.in );
+		try (Scanner scan = new Scanner ( System.in );){
 			
 			int fermis = 0, picos = 0, nanos = 0;
 			
@@ -131,7 +130,6 @@ public class FermiGame {
 			
 			return result;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;

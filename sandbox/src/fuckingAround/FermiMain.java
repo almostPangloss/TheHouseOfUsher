@@ -2,7 +2,7 @@ package fuckingAround;
 
 import java.util.Scanner;
 
-public class Main {
+public class FermiMain {
 
 	public static void main(String[] args) {
 		
@@ -33,6 +33,7 @@ public class Main {
 		
 		System.out.println("You played this many games: " + quandoGame);
 		
+		scan.close();
 	}
 
 }
