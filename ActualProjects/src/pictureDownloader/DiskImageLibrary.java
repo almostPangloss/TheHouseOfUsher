@@ -25,7 +25,6 @@ public class DiskImageLibrary {
 				
 	}
 	
-	
 	public String[] getImageIdentifiers(){
 		
 		File[] fileArray = selectedFile.listFiles();
@@ -47,8 +46,9 @@ public class DiskImageLibrary {
 			for (String[] s : missingImageURLs) {
 				if (!(s[1] == null)) {
 					System.out.println("s[1]: >" + s[1] + "<");
-					InputStream in = new URL(s[1]).openStream();
-					Files.copy(in, Paths.get(selectedFile.getPath() + "\\" + s[0]));
+					try(InputStream in = new URL(s[1]).openStream()){
+						Files.copy(in, Paths.get(selectedFile.getPath() + "\\" + s[0]));
+					}
 				}
 			}
 		} catch (IOException e) {

@@ -2,6 +2,7 @@ package pictureDownloader;
 
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import org.jsoup.Jsoup;
@@ -59,7 +60,7 @@ public class APODImageLibrary {
 			}			
 		
 		}
-		return aPODImageArray;
+		return Arrays.copyOf(aPODImageArray, cnt);
 	}
 	
 	public void downloadImages(String[] toDownload) {

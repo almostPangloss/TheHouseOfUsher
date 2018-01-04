@@ -1,5 +1,7 @@
 package pictureDownloader;
 
+import java.util.Arrays;
+
 /*
  * ImageSync - This is all the GUI stuff & and sync code
  *  + DiskImageLibrary
@@ -28,24 +30,27 @@ public class ImageSync {
 	public String[][] findMissingURLs() {
 		String[][] missingImages = new String[10][2];
 		
-		int isOwned = 0;
+		boolean isOwned = false;
 		int cnt = 0;
 		for (int i = 0; i < (APODImageLibrary.length - 1); i++) {
 			for (String s : DiskImageLibrary) {
+				if ( APODImageLibrary == null || APODImageLibrary[i] == null || APODImageLibrary[i][0] == null){
+					System.out.println("Fuckels");
+				}
 				if (APODImageLibrary[i][0].equals(s)) {
-					isOwned = 1;
+					isOwned = true;
 				}
 			}
-			if (isOwned == 0) {
+			if (!isOwned) {
 				missingImages[cnt][0] = APODImageLibrary[i][0];
 				missingImages[cnt][1] = APODImageLibrary[i][1];
 				cnt++;
 			}
 			
-			isOwned = 0;
+			isOwned = false;
 			 
 		}
 		
-		return missingImages;
+		return Arrays.copyOf(missingImages, cnt);
 	}
 }
