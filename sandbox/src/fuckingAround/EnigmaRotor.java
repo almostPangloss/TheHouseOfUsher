@@ -16,10 +16,11 @@ public class EnigmaRotor {
 		/*
 		 * What does an enigma rotor do:
 		 * It's a disk which has a set encryption
-		 * When given an input letter, it translates that to the corresponding output letter, and ticks forward one
+		 * When given an input letter, it translates that to the corresponding output letter
 		 * The output of each rotor is the input of the next
 		 * After the third rotorthere's a reflector, with its own encoding that sends the signal back. 
 		 * The rotors are reused and stepped forward accordingly
+		 * 
 		 * 
 		 */
 	}
