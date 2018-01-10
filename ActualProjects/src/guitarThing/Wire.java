@@ -1,15 +1,12 @@
 package guitarThing;
 
-/*
- * https://theengineerspulse.blogspot.com/2011/05/guitar-string-theory.html
- */
 
 public class Wire {
 	private final int lengthMM = 624;
 	private double hz;
-	private GuitarStringNames stringName;
+	private OpenStrings stringName;
 	
-	public Wire(GuitarStringNames stringName) {
+	public Wire(OpenStrings stringName) {
 		this.stringName = stringName;
 		this.hz = stringName.getHz();
 	}

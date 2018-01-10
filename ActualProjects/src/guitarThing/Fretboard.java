@@ -1,20 +1,19 @@
 package guitarThing;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Fretboard{
-	
-	 List<Integer> frets = new ArrayList<>();
 	
 	 public Fretboard() {
 	 }
 	 
-	 public double fretValue(int fret) {
-		 double fretValue = 0.0;
+	 public double fretedHz(int fret, OpenStrings wire) {
+		 double fretedHz = 0.0;
 		 
+		 fretedHz = wire.getHz();
 		 
+		 for ( int i = 1; i <= fret; i++) {
+			 fretedHz *= 1.0595;
+		 }		 
 		 
-		 return fretValue;
+		 return fretedHz;
 	 }
 }

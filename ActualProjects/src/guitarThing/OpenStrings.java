@@ -1,6 +1,6 @@
 package guitarThing;
 
-public enum GuitarStringNames {
+public enum OpenStrings {
 	E(82.41),
 	A(110.00),
 	D(146.83),
@@ -10,7 +10,7 @@ public enum GuitarStringNames {
 	
 	private double hz;
 	
-	private GuitarStringNames(double hz) {
+	private OpenStrings(double hz) {
 		this.hz = hz;
 	}
 	
