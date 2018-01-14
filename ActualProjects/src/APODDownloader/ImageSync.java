@@ -1,4 +1,4 @@
-package pictureDownloader;
+package APODDownloader;
 
 import java.util.Arrays;
 

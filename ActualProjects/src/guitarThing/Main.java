@@ -26,11 +26,11 @@ Also indicate octaves of that note
 
 public class Main {
 	
-	public static List<String> Notes = new ArrayList<String>();
+	public static List<String> MusicalNotes = new ArrayList<String>();
 
 	public static void main(String[] args) {
 		
-		Notes.addAll(Arrays.asList("E", "F", "Gb", "G", "Ab", 
+		MusicalNotes.addAll(Arrays.asList("E", "F", "Gb", "G", "Ab", 
 				"A", "Bb", "B", "C", "Db", "D", "Eb"));		
 		
 		Fretboard fretboard = new Fretboard();
@@ -49,17 +49,14 @@ public class Main {
 				 * is added to the wire root note, then the index of that note 
 				 * is modded by 12, forcing a mapping to the 12 note scale.
 				 */
-				NoteName = Notes.get((Notes.indexOf(wire.name().toUpperCase()) + i) % 12);
+				NoteName = MusicalNotes.get((MusicalNotes.indexOf(wire.name().toUpperCase()) + i) % 12);
 				System.out.println("Fretting the " + wire.name() + " string at " + i + " gives you\n"
-						+ "the note " + NoteName +" and a Hz of:");
-				
+						+ "the note " + NoteName +" and a Hz of:");				
 				System.out.println(fretboard.fretedHz(i, wire));
 				System.out.println();
 			}
 		}
-
 	}
-
 }
 
 

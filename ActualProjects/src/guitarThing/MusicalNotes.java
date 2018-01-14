@@ -1,6 +1,6 @@
 package guitarThing;
 
-public enum Notes {
+public enum MusicalNotes {
 	E,
 	F,
 	Gb,
