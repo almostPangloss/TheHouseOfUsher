@@ -38,6 +38,7 @@ public class Main {
 		
 		
 		for (GuitarNote g : fullFretboard) {
+			System.out.println("Playing the " + g.stringName + " at fret " + g.fret + " gives you:");
 			System.out.println(g.noteName + ": " + g.freq);
 			List<GuitarNote> scale = fretboard.createMajorScale(g);
 			System.out.println(scale);
