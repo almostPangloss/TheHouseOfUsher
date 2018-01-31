@@ -42,7 +42,7 @@ public class Fretboard{
 		}
 		return fullFretboard;
 	}
-	
+
 	public List<GuitarNote> createMajorScale(GuitarNote note){
 		List<GuitarNote> scale = new ArrayList<>();
 		
