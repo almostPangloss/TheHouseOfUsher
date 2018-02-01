@@ -29,7 +29,7 @@ public class Fretboard{
 		List<GuitarNote> fullFretboard = new ArrayList<GuitarNote>();
 		
 		for (OpenStrings wire : OpenStrings.values()) {
-			for (int fret = 0; fret <= 12; fret++) {
+			for (int fret = 0; fret <= 15; fret++) {
 				String noteName = "";
 				noteName = MusicalNotes.get((MusicalNotes.indexOf(wire.name().toUpperCase()) + fret) % 12);				
 				double freq = this.fretedHz(fret, wire);
