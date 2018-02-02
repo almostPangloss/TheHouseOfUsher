@@ -1,14 +1,17 @@
 package guitarThing;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JSeparator;
-import java.awt.Color;
-import javax.swing.SwingConstants;
 import javax.swing.JPanel;
-import java.awt.Font;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 public class GUI {
 
@@ -18,6 +21,9 @@ public class GUI {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,6 +51,11 @@ public class GUI {
 		frame.setBounds(100, 100, 950, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		JSeparator separator_6 = new JSeparator();
+		separator_6.setOrientation(SwingConstants.VERTICAL);
+		separator_6.setBounds(94, 44, 2, 273);
+		frame.getContentPane().add(separator_6);
 		
 		JLabel label = new JLabel("●●");
 		label.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -87,11 +98,6 @@ public class GUI {
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
 		label_4.setBounds(822, 305, 46, 18);
 		frame.getContentPane().add(label_4);
-		
-		JSeparator separator_6 = new JSeparator();
-		separator_6.setOrientation(SwingConstants.VERTICAL);
-		separator_6.setBounds(95, 50, 2, 265);
-		frame.getContentPane().add(separator_6);
 		
 		JSeparator separator_7 = new JSeparator();
 		separator_7.setOrientation(SwingConstants.VERTICAL);
@@ -228,7 +234,7 @@ public class GUI {
 		
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setOrientation(SwingConstants.VERTICAL);
-		separator_2.setBounds(93, 50, 2, 265);
+		separator_2.setBounds(96, 44, 2, 273);
 		frame.getContentPane().add(separator_2);
 		
 		JPanel eString = new JPanel();
@@ -236,13 +242,13 @@ public class GUI {
 		eString.setBounds(47, 62, 796, 36);
 		frame.getContentPane().add(eString);
 		
-		JLabel lblHighestring = new JLabel("HighEString");
-		lblHighestring.setOpaque(true);
-		lblHighestring.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHighestring.setForeground(Color.BLACK);
-		lblHighestring.setBackground(Color.YELLOW);
-		lblHighestring.setBounds(0, 0, 46, 36);
-		eString.add(lblHighestring);
+		JLabel lblHighestring_0 = new JLabel("HighEString");
+		lblHighestring_0.setOpaque(true);
+		lblHighestring_0.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHighestring_0.setForeground(Color.BLACK);
+		lblHighestring_0.setBackground(Color.YELLOW);
+		lblHighestring_0.setBounds(0, 0, 46, 36);
+		eString.add(lblHighestring_0);
 		
 		JLabel lblHighestring_1 = new JLabel("HighEString");
 		lblHighestring_1.setOpaque(true);
@@ -369,13 +375,13 @@ public class GUI {
 		BString.setBounds(47, 102, 796, 36);
 		frame.getContentPane().add(BString);
 		
-		JLabel lblBstring = new JLabel("BString");
-		lblBstring.setOpaque(true);
-		lblBstring.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBstring.setForeground(Color.BLACK);
-		lblBstring.setBackground(Color.GREEN);
-		lblBstring.setBounds(0, 0, 46, 36);
-		BString.add(lblBstring);
+		JLabel lblBstring_0 = new JLabel("BString");
+		lblBstring_0.setOpaque(true);
+		lblBstring_0.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBstring_0.setForeground(Color.BLACK);
+		lblBstring_0.setBackground(Color.GREEN);
+		lblBstring_0.setBounds(0, 0, 46, 36);
+		BString.add(lblBstring_0);
 		
 		JLabel lblBstring_1 = new JLabel("BString");
 		lblBstring_1.setOpaque(true);
@@ -502,13 +508,13 @@ public class GUI {
 		GString.setBounds(47, 142, 796, 36);
 		frame.getContentPane().add(GString);
 		
-		JLabel lblGstring = new JLabel("GString");
-		lblGstring.setOpaque(true);
-		lblGstring.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGstring.setForeground(Color.BLACK);
-		lblGstring.setBackground(Color.CYAN);
-		lblGstring.setBounds(0, 0, 46, 36);
-		GString.add(lblGstring);
+		JLabel lblGstring_0 = new JLabel("GString");
+		lblGstring_0.setOpaque(true);
+		lblGstring_0.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGstring_0.setForeground(Color.BLACK);
+		lblGstring_0.setBackground(Color.CYAN);
+		lblGstring_0.setBounds(0, 0, 46, 36);
+		GString.add(lblGstring_0);
 		
 		JLabel lblGstring_1 = new JLabel("GString");
 		lblGstring_1.setOpaque(true);
@@ -635,13 +641,13 @@ public class GUI {
 		DString.setBounds(47, 182, 796, 36);
 		frame.getContentPane().add(DString);
 		
-		JLabel lblDstring = new JLabel("DString");
-		lblDstring.setOpaque(true);
-		lblDstring.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDstring.setForeground(Color.BLACK);
-		lblDstring.setBackground(Color.BLUE);
-		lblDstring.setBounds(0, 0, 46, 36);
-		DString.add(lblDstring);
+		JLabel lblDstring_0 = new JLabel("DString");
+		lblDstring_0.setOpaque(true);
+		lblDstring_0.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDstring_0.setForeground(Color.BLACK);
+		lblDstring_0.setBackground(Color.BLUE);
+		lblDstring_0.setBounds(0, 0, 46, 36);
+		DString.add(lblDstring_0);
 		
 		JLabel lblDstring_1 = new JLabel("DString");
 		lblDstring_1.setOpaque(true);
@@ -768,13 +774,13 @@ public class GUI {
 		AString.setBounds(47, 222, 796, 36);
 		frame.getContentPane().add(AString);
 		
-		JLabel lblAstring = new JLabel("AString");
-		lblAstring.setOpaque(true);
-		lblAstring.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAstring.setForeground(Color.BLACK);
-		lblAstring.setBackground(Color.MAGENTA);
-		lblAstring.setBounds(0, 0, 46, 36);
-		AString.add(lblAstring);
+		JLabel lblAstring_0 = new JLabel("AString");
+		lblAstring_0.setOpaque(true);
+		lblAstring_0.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAstring_0.setForeground(Color.BLACK);
+		lblAstring_0.setBackground(Color.MAGENTA);
+		lblAstring_0.setBounds(0, 0, 46, 36);
+		AString.add(lblAstring_0);
 		
 		JLabel lblAstring_1 = new JLabel("AString");
 		lblAstring_1.setOpaque(true);
@@ -901,13 +907,13 @@ public class GUI {
 		EString.setBounds(47, 262, 796, 36);
 		frame.getContentPane().add(EString);
 		
-		JLabel lblEstring = new JLabel("EString");
-		lblEstring.setOpaque(true);
-		lblEstring.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEstring.setForeground(Color.BLACK);
-		lblEstring.setBackground(Color.RED);
-		lblEstring.setBounds(0, 0, 46, 36);
-		EString.add(lblEstring);
+		JLabel lblEstring_0 = new JLabel("EString");
+		lblEstring_0.setOpaque(true);
+		lblEstring_0.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEstring_0.setForeground(Color.BLACK);
+		lblEstring_0.setBackground(Color.RED);
+		lblEstring_0.setBounds(0, 0, 46, 36);
+		EString.add(lblEstring_0);
 		
 		JLabel lblEstring_1 = new JLabel("EString");
 		lblEstring_1.setOpaque(true);
@@ -1028,5 +1034,28 @@ public class GUI {
 		lblEstring_15.setBackground(Color.RED);
 		lblEstring_15.setBounds(750, 0, 46, 36);
 		EString.add(lblEstring_15);
+		
+		List<JPanel> strings = new ArrayList<>();
+		strings.add(EString);
+		strings.add(AString);
+		strings.add(DString);
+		strings.add(GString);
+		strings.add(BString);
+		strings.add(eString);
+		
+		List<String> MusicalNotes = new ArrayList<String>();
+		
+		MusicalNotes.addAll(Arrays.asList("E", "F", "F#", "G", "G#", 
+				"A", "A#", "B", "C", "C#", "D", "D#"));
+		
+		Fretboard fretboard = new Fretboard(MusicalNotes);
+		List<List<GuitarNote>> fullFretboard = fretboard.createFullFretboard();
+		
+		for (JPanel wire : strings) {
+			List<GuitarNote> guitarString = fullFretboard.get(fullFretboard.indexOf(wire.getName()));
+			for (int i = 0; i < 15; i++) {
+				wire.getComponent(i).setName(guitarString.get(i).noteName);
+			}
+		}
 	}
 }

@@ -36,7 +36,6 @@ public class Main {
 		Fretboard fretboard = new Fretboard(MusicalNotes);
 		List<List<GuitarNote>> fullFretboard = fretboard.createFullFretboard();
 		
-		
 		for (List<GuitarNote> wire : fullFretboard) {
 			for (GuitarNote g : wire) {
 				System.out.println("Playing the " + g.stringName + " string at fret " + g.fret + " gives you:");

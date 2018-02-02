@@ -42,7 +42,7 @@ public class Fretboard{
 		fullFretboard.add(BString);
 		fullFretboard.add(eString);
 		
-		int cnt = 0;		
+		int cnt = 0;
 		for (OpenStrings wire : OpenStrings.values()) {			
 			for (int fret = 0; fret <= 15; fret++) {
 				String noteName = "";
