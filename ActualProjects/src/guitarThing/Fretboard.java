@@ -25,10 +25,25 @@ public class Fretboard{
 		 return fretedHz;
 	}
 	
-	public List<GuitarNote> createFullFretboard(){
-		List<GuitarNote> fullFretboard = new ArrayList<GuitarNote>();
+	public List<List<GuitarNote>> createFullFretboard(){
 		
-		for (OpenStrings wire : OpenStrings.values()) {
+		List<GuitarNote> EString = new ArrayList<GuitarNote>();
+		List<GuitarNote> AString = new ArrayList<GuitarNote>();
+		List<GuitarNote> DString = new ArrayList<GuitarNote>();
+		List<GuitarNote> GString = new ArrayList<GuitarNote>();
+		List<GuitarNote> BString = new ArrayList<GuitarNote>();
+		List<GuitarNote> eString = new ArrayList<GuitarNote>();
+		
+		List<List<GuitarNote>> fullFretboard = new ArrayList<List<GuitarNote>>();
+		fullFretboard.add(EString);
+		fullFretboard.add(AString);
+		fullFretboard.add(DString);
+		fullFretboard.add(GString);
+		fullFretboard.add(BString);
+		fullFretboard.add(eString);
+		
+		int cnt = 0;		
+		for (OpenStrings wire : OpenStrings.values()) {			
 			for (int fret = 0; fret <= 15; fret++) {
 				String noteName = "";
 				noteName = MusicalNotes.get((MusicalNotes.indexOf(wire.name().toUpperCase()) + fret) % 12);				
@@ -37,8 +52,9 @@ public class Fretboard{
 				// Trying to create an object in a loop
 				// Looks like I can create a list of unnamed object entries, but not a new object
 				// so, do that
-				fullFretboard.add(new GuitarNote(wire, fret, noteName, freq ));
+				fullFretboard.get(cnt).add(new GuitarNote(wire, fret, noteName, freq ));
 			}
+			cnt++;
 		}
 		return fullFretboard;
 	}

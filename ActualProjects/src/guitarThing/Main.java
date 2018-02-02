@@ -34,16 +34,18 @@ public class Main {
 				"A", "A#", "B", "C", "C#", "D", "D#"));
 		
 		Fretboard fretboard = new Fretboard(MusicalNotes);
-		List<GuitarNote> fullFretboard = fretboard.createFullFretboard();
+		List<List<GuitarNote>> fullFretboard = fretboard.createFullFretboard();
 		
 		
-		for (GuitarNote g : fullFretboard) {
-			System.out.println("Playing the " + g.stringName + " at fret " + g.fret + " gives you:");
-			System.out.println(g.noteName + ": " + g.freq);
-			List<GuitarNote> scale = fretboard.createMajorScale(g);
-			System.out.println(scale);
-			scale = fretboard.createMinorScale(g);
-			System.out.println(scale);
+		for (List<GuitarNote> wire : fullFretboard) {
+			for (GuitarNote g : wire) {
+				System.out.println("Playing the " + g.stringName + " string at fret " + g.fret + " gives you:");
+				System.out.println(g.noteName + ": " + g.freq);
+				List<GuitarNote> scale = fretboard.createMajorScale(g);
+				System.out.println(scale);
+				scale = fretboard.createMinorScale(g);
+				System.out.println(scale);
+			}
 		}
 //		
 //		MusicalNotes.addAll(Arrays.asList("E", "F", "Gb", "G", "Ab", 
