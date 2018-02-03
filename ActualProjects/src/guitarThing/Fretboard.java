@@ -66,6 +66,19 @@ public class Fretboard{
 		
 		int tone = 0;
 		for (int i = 0; i < 8; i++) {
+			/*
+			 * Get the name of the note that's been passed, find that note in the list of possible notes, 
+			 * then add to it the tone, which keeps the notes returned within the scale,
+			 * then add that new note into the Scale var as a GuitarNote object, so it has all the info tied to it
+			 * 
+			 * Hmm, this also needs to check to see if the full scale can be created
+			 *  - that'll be easy enough: just find which scale ends with the high e string on the last(15th) fret,
+			 *    and take the first note of that scale - 
+			 *    any note after that can't have its full scale created on this guitar
+			 *    
+			 *    This will ne to surround the whole creation, thing, and, if it can't be done, it'll say so, and return 
+			 *    an empty/null/unchanged List of List of GuitarNote
+			 */
 			scale.add( new GuitarNote(MusicalNotes.get((MusicalNotes.indexOf(note.noteName) + tone) % 12)));
 			
 			if ( i == 2 || i == 6) {

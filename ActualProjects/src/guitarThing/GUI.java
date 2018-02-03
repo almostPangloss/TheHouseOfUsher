@@ -54,42 +54,42 @@ public class GUI {
 		separator_6.setBounds(94, 44, 2, 273);
 		frame.getContentPane().add(separator_6);
 		
-		JLabel label = new JLabel("••");
+		JLabel label = new JLabel("ï¿½ï¿½");
 		label.setVerticalAlignment(SwingConstants.BOTTOM);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setBounds(673, 305, 46, 18);
 		frame.getContentPane().add(label);
 		
-		JLabel label_3 = new JLabel("•");
+		JLabel label_3 = new JLabel("ï¿½");
 		label_3.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		label_3.setBounds(523, 305, 46, 18);
 		frame.getContentPane().add(label_3);
 		
-		JLabel label_1 = new JLabel("•");
+		JLabel label_1 = new JLabel("ï¿½");
 		label_1.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setBounds(322, 305, 46, 18);
 		frame.getContentPane().add(label_1);
 		
-		JLabel lblNewLabel = new JLabel("•");
+		JLabel lblNewLabel = new JLabel("ï¿½");
 		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(222, 305, 46, 18);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel label_2 = new JLabel("•");
+		JLabel label_2 = new JLabel("ï¿½");
 		label_2.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setBounds(423, 305, 46, 18);
 		frame.getContentPane().add(label_2);
 		
-		JLabel label_4 = new JLabel("•");
+		JLabel label_4 = new JLabel("ï¿½");
 		label_4.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1057,7 +1057,6 @@ public class GUI {
 				if () // Fuuuuuuu-
 			}
 		}
-		
 	}
 }
 
