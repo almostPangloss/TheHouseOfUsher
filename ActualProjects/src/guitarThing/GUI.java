@@ -1054,7 +1054,7 @@ public class GUI {
 		for (int s = 0; s < relevantCells.size(); s++) {
 			List<GuitarNote> workingString = relevantCells.get(s);
 			for (int f = 0; f < workingString.size(); f++) {
-				if () // Fuuuuuuu-
+				if (workingString.get(f) // Fuuuuuuu-
 			}
 		}
 	}

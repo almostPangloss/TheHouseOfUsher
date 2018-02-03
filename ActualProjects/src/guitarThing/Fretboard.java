@@ -11,6 +11,7 @@ public class Fretboard{
 	List<List<GuitarNote>> fullFretboard = this.createFullFretboard();
 	
 	public Fretboard() {
+		
 	}
 	 
 	 // This takes in the fret and the string being held at 
