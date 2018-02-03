@@ -28,6 +28,7 @@ public class SquaresCounter {
 		
 		System.out.println(num + ", which took this many iterations: " + cnt);
 
+		scan.close();
 	}
 
 }

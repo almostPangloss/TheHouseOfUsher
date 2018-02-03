@@ -3,7 +3,7 @@ package textBook;
 public class WeatherForecast {
 
 	private double temp = 0.0;
-	private enum conditions{SUNNY, SNOWY, RAINY, CLOUDY}; // Again I feel the need for a .contains
+//	private enum conditions{SUNNY, SNOWY, RAINY, CLOUDY}; // Again I feel the need for a .contains
 	private String condition;
 	
 	public WeatherForecast(double temp, String condition) {

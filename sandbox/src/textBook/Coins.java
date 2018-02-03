@@ -24,7 +24,7 @@ public class Coins {
 		                   	+ (Math.PI * total * total) + 
 		                   	" and a perimeter of "
 							+ (Math.PI * 2 * total) + ".");
-
+		scan.close();
 	}
 
 }

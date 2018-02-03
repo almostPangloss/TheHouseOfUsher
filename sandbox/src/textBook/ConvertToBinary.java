@@ -35,13 +35,14 @@ public class ConvertToBinary {
 				
 			} else
 			{
+				@SuppressWarnings("unused")
 				String garbage = scan.nextLine();
 			}
 		} while (entry == -1);
 		
 		System.out.println(entry);
 		
-		
+		scan.close();
 		
 	}
 

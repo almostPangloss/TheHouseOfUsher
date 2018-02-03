@@ -10,9 +10,9 @@ public class EnigmaMain {
 //		showNewtext();
 ////		
 		
-		EnigmaRotor er = new EnigmaRotor(11);
-		System.out.println(er.encrypt("hello world"));
-		System.out.println(er.decrypt(er.encrypt("hello world")));
+//		EnigmaRotor er = new EnigmaRotor();
+//		System.out.println(er.encrypt("hello world"));
+//		System.out.println(er.decrypt(er.encrypt("hello world")));
 	}
 
 }

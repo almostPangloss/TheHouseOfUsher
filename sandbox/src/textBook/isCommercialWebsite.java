@@ -25,6 +25,7 @@ public class isCommercialWebsite {
 		
 		System.out.println("The number of addresses entered containing .com is " + numberOfComs);
 		
+		scanner.close();
 	}
 
 }

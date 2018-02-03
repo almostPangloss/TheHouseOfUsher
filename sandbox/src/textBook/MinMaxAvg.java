@@ -42,6 +42,7 @@ public class MinMaxAvg {
 					}
 				} else 
 				{
+					@SuppressWarnings("unused")
 					String grabage = scan.nextLine();
 				}
 			} while (score == -1.0);

@@ -44,5 +44,6 @@ public class PracticeMethods
     int guess = Integer.parseInt(JOptionPane.showInputDialog("Hazard a guess?"));
     JOptionPane.showMessageDialog(null, "Ah, dude, the actual number was " + r + " and you were " + Math.abs(r - guess) + " off, which, you know, isn't bad.");
 
+    scan.close();
   }
 }

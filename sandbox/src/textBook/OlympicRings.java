@@ -8,6 +8,11 @@ import javax.swing.JApplet;
 @SuppressWarnings("deprecation")
 public class OlympicRings extends JApplet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void paint(Graphics g) {
 		int cW = 60, wW = 40, s = 5;
 		

@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 public class GUI {
 
 	private JFrame frame;
-	List<JPanel> strings = new ArrayList<>();
+	static List<JPanel> strings = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -26,6 +26,11 @@ public class GUI {
 				try {
 					GUI window = new GUI();
 					window.frame.setVisible(true);
+					
+					Fretboard fretboard = new Fretboard();
+					List<List<GuitarNote>> fullFretboard = fretboard.fullFretboard;
+					updateLabels(fullFretboard);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -1043,7 +1048,7 @@ public class GUI {
 		strings.add(eString);
 	}
 	
-	public void updateLabels(List<List<GuitarNote>> relevantCells) {
+	public static void updateLabels(List<List<GuitarNote>> relevantCells) {
 		/*
 		 * Maybe pass this a List called "relevantStringFretCombos" or "relevantCombos" or "relevantCells"
 		 * and then paint all those not in that list invisible??
@@ -1054,7 +1059,9 @@ public class GUI {
 		for (int s = 0; s < relevantCells.size(); s++) {
 			List<GuitarNote> workingString = relevantCells.get(s);
 			for (int f = 0; f < workingString.size(); f++) {
-				if (workingString.get(f) // Fuuuuuuu-
+				if (workingString.get(f) != null) {	
+					((JLabel) strings.get(s).getComponent(f)).setText(workingString.get(f).noteName);
+				}
 			}
 		}
 	}

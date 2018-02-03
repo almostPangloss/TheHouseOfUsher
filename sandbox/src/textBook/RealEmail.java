@@ -26,7 +26,8 @@ public class RealEmail {
 		} while ( !(ats == 2) );
 		
 		System.out.println("Accepted");
-		
+	
+		scan.close();
 	}
 
 }

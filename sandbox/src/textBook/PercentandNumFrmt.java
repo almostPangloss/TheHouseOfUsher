@@ -21,6 +21,7 @@ public class PercentandNumFrmt {
 					"\n10 years: " + frmt.format(princ * Math.pow((1 + rate), 10)) +
 					"\n20 years: " + frmt.format(princ * Math.pow((1 + rate), 20)) );
 
+			sn.close();
 	}
 
 }
