@@ -33,7 +33,7 @@ public class Main {
 		MusicalNotes.addAll(Arrays.asList("E", "F", "F#", "G", "G#", 
 				"A", "A#", "B", "C", "C#", "D", "D#"));
 		
-		Fretboard fretboard = new Fretboard(MusicalNotes);
+		Fretboard fretboard = new Fretboard();
 		List<List<GuitarNote>> fullFretboard = fretboard.createFullFretboard();
 		
 		for (List<GuitarNote> wire : fullFretboard) {

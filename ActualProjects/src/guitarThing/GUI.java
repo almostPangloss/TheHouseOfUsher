@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -16,14 +15,12 @@ import javax.swing.SwingConstants;
 public class GUI {
 
 	private JFrame frame;
+	List<JPanel> strings = new ArrayList<>();
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		
-
-		
+	public static void main(String[] args) {		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -57,42 +54,42 @@ public class GUI {
 		separator_6.setBounds(94, 44, 2, 273);
 		frame.getContentPane().add(separator_6);
 		
-		JLabel label = new JLabel("‚óè‚óè");
+		JLabel label = new JLabel("ïï");
 		label.setVerticalAlignment(SwingConstants.BOTTOM);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setBounds(673, 305, 46, 18);
 		frame.getContentPane().add(label);
 		
-		JLabel label_3 = new JLabel("‚óè");
+		JLabel label_3 = new JLabel("ï");
 		label_3.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		label_3.setBounds(523, 305, 46, 18);
 		frame.getContentPane().add(label_3);
 		
-		JLabel label_1 = new JLabel("‚óè");
+		JLabel label_1 = new JLabel("ï");
 		label_1.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setBounds(322, 305, 46, 18);
 		frame.getContentPane().add(label_1);
 		
-		JLabel lblNewLabel = new JLabel("‚óè");
+		JLabel lblNewLabel = new JLabel("ï");
 		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(222, 305, 46, 18);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel label_2 = new JLabel("‚óè");
+		JLabel label_2 = new JLabel("ï");
 		label_2.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setBounds(423, 305, 46, 18);
 		frame.getContentPane().add(label_2);
 		
-		JLabel label_4 = new JLabel("‚óè");
+		JLabel label_4 = new JLabel("ï");
 		label_4.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1035,27 +1032,46 @@ public class GUI {
 		lblEstring_15.setBounds(750, 0, 46, 36);
 		EString.add(lblEstring_15);
 		
-		List<JPanel> strings = new ArrayList<>();
-		strings.add(EString);
+		// Does it matter that I have these here? Could I put each assignment in it's respective JPanel creation block?
+		// Are these object references, and so as the object changes, the content of the list of the objects also changes?
+		// or are these the actual things, so when I put them into the list, they go into it as what they are at the time and don't get updated?
+		strings.add(EString); 
 		strings.add(AString);
 		strings.add(DString);
 		strings.add(GString);
 		strings.add(BString);
 		strings.add(eString);
+	}
+	
+	public void updateLabels(List<List<GuitarNote>> relevantCells) {
+		/*
+		 * Maybe pass this a List called "relevantStringFretCombos" or "relevantCombos" or "relevantCells"
+		 * and then paint all those not in that list invisible??
+		 * Fuck, I have no idea how to interact with this layer, like what's best practice?
+		 * Maybe have a set of check boxes for what gets displayed in each label?
+		 */
 		
-		List<String> MusicalNotes = new ArrayList<String>();
-		
-		MusicalNotes.addAll(Arrays.asList("E", "F", "F#", "G", "G#", 
-				"A", "A#", "B", "C", "C#", "D", "D#"));
-		
-		Fretboard fretboard = new Fretboard(MusicalNotes);
-		List<List<GuitarNote>> fullFretboard = fretboard.createFullFretboard();
-		
-		for (JPanel wire : strings) {
-			List<GuitarNote> guitarString = fullFretboard.get(fullFretboard.indexOf(wire.getName()));
-			for (int i = 0; i < 15; i++) {
-				wire.getComponent(i).setName(guitarString.get(i).noteName);
+		for (int s = 0; s < relevantCells.size(); s++) {
+			for (int f = 0; f < 15; f++) {
+				if () // Fuuuuuuu-
 			}
 		}
+		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

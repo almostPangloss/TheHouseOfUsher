@@ -1,14 +1,16 @@
 package guitarThing;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Fretboard{
 	
-	List<String> MusicalNotes = new ArrayList<>();
+	List<String> MusicalNotes = new ArrayList<>(Arrays.asList("E", "F", "F#", "G", "G#", 
+			"A", "A#", "B", "C", "C#", "D", "D#"));
+	List<List<GuitarNote>> fullFretboard = this.createFullFretboard();
 	
-	public Fretboard(List<String> MusicalNotes) {
-		this.MusicalNotes = MusicalNotes;
+	public Fretboard() {
 	}
 	 
 	 // This takes in the fret and the string being held at 
@@ -42,7 +44,7 @@ public class Fretboard{
 		fullFretboard.add(BString);
 		fullFretboard.add(eString);
 		
-		int cnt = 0;
+		int count = 0;
 		for (OpenStrings wire : OpenStrings.values()) {			
 			for (int fret = 0; fret <= 15; fret++) {
 				String noteName = "";
@@ -52,9 +54,9 @@ public class Fretboard{
 				// Trying to create an object in a loop
 				// Looks like I can create a list of unnamed object entries, but not a new object
 				// so, do that
-				fullFretboard.get(cnt).add(new GuitarNote(wire, fret, noteName, freq ));
+				fullFretboard.get(count).add(new GuitarNote(wire, fret, noteName, freq ));
 			}
-			cnt++;
+			count++;
 		}
 		return fullFretboard;
 	}
