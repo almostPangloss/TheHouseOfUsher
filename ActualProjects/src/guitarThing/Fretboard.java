@@ -11,7 +11,6 @@ public class Fretboard{
 	List<List<GuitarNote>> fullFretboard = this.createFullFretboard();
 	
 	public Fretboard() {
-		
 	}
 	 
 	 // This takes in the fret and the string being held at 
@@ -77,7 +76,7 @@ public class Fretboard{
 			 *    and take the first note of that scale - 
 			 *    any note after that can't have its full scale created on this guitar
 			 *    
-			 *    This will ne to surround the whole creation, thing, and, if it can't be done, it'll say so, and return 
+			 *    This will need to surround the whole creation, thing, and, if it can't be done, it'll say so, and return 
 			 *    an empty/null/unchanged List of List of GuitarNote
 			 */
 			scale.add( new GuitarNote(MusicalNotes.get((MusicalNotes.indexOf(note.noteName) + tone) % 12)));

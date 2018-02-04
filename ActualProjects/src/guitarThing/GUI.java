@@ -59,46 +59,46 @@ public class GUI {
 		separator_6.setBounds(94, 44, 2, 273);
 		frame.getContentPane().add(separator_6);
 		
-		JLabel label = new JLabel("��");
+		JLabel label = new JLabel("҈");
 		label.setVerticalAlignment(SwingConstants.BOTTOM);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setBounds(673, 305, 46, 18);
+		label.setBounds(672, 307, 46, 18);
 		frame.getContentPane().add(label);
 		
-		JLabel label_3 = new JLabel("�");
+		JLabel label_3 = new JLabel("҉");
 		label_3.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
-		label_3.setBounds(523, 305, 46, 18);
+		label_3.setBounds(522, 307, 46, 18);
 		frame.getContentPane().add(label_3);
 		
-		JLabel label_1 = new JLabel("�");
+		JLabel label_1 = new JLabel("҉");
 		label_1.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setBounds(322, 305, 46, 18);
+		label_1.setBounds(322, 307, 46, 18);
 		frame.getContentPane().add(label_1);
 		
-		JLabel lblNewLabel = new JLabel("�");
+		JLabel lblNewLabel = new JLabel("҉");
 		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(222, 305, 46, 18);
+		lblNewLabel.setBounds(222, 307, 46, 18);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel label_2 = new JLabel("�");
+		JLabel label_2 = new JLabel("҉");
 		label_2.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setBounds(423, 305, 46, 18);
+		label_2.setBounds(422, 307, 46, 18);
 		frame.getContentPane().add(label_2);
 		
-		JLabel label_4 = new JLabel("�");
+		JLabel label_4 = new JLabel("҉");
 		label_4.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
-		label_4.setBounds(822, 305, 46, 18);
+		label_4.setBounds(822, 307, 46, 18);
 		frame.getContentPane().add(label_4);
 		
 		JSeparator separator_7 = new JSeparator();
