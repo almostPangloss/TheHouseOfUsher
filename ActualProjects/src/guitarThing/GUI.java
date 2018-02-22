@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -11,11 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GUI {
 
 	private JFrame frame;
 	static List<JPanel> strings = new ArrayList<>();
+    static Fretboard fretboard = new Fretboard();
+	static List<List<GuitarNote>> fullFretboard = fretboard.fullFretboard;
+	static List<Color> colors = new ArrayList<>(Arrays.asList(new Color(230, 25, 75), new Color(60, 180, 75), new Color(255, 225, 25), new Color(0, 130, 200), new Color(245, 130, 48), new Color(145, 30, 180), 
+			new Color(70, 240, 240), new Color(240, 50, 230), new Color(128, 0, 0), new Color(250, 190, 190), new Color(0, 128, 128), new Color(230, 190, 255)));
 
 	/**
 	 * Launch the application.
@@ -27,9 +35,9 @@ public class GUI {
 					GUI window = new GUI();
 					window.frame.setVisible(true);
 					
-					Fretboard fretboard = new Fretboard();
-					List<List<GuitarNote>> fullFretboard = fretboard.fullFretboard;
-					updateLabels(fullFretboard);
+
+					showLabelNames(fullFretboard);
+					
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -1046,14 +1054,36 @@ public class GUI {
 		strings.add(GString);
 		strings.add(BString);
 		strings.add(eString);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clearLabels(fullFretboard);
+			}
+		});
+		btnClear.setBounds(94, 11, 89, 23);
+		frame.getContentPane().add(btnClear);
+		
+		JButton btnNames = new JButton("Names");
+		btnNames.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				showLabelNames(fullFretboard);
+			}
+		});
+		btnNames.setBounds(195, 11, 89, 23);
+		frame.getContentPane().add(btnNames);
 	}
 	
-	public static void updateLabels(List<List<GuitarNote>> relevantCells) {
+	public static void showLabelNames(List<List<GuitarNote>> relevantCells) {
 		/*
 		 * Maybe pass this a List called "relevantStringFretCombos" or "relevantCombos" or "relevantCells"
 		 * and then paint all those not in that list invisible??
 		 * Fuck, I have no idea how to interact with this layer, like what's best practice?
 		 * Maybe have a set of check boxes for what gets displayed in each label?
+		 * 
+		 * Pass this a list of coordinates (2,0; 1,4; so on) and then treat the array of arrays as a table,
+		 * Looping through the list of pairs of numbers to change only those cells which need to be changed.
+		 * Also, though, there needs to be a "clear" function for the labels to reset them
 		 */
 		
 		for (int s = 0; s < relevantCells.size(); s++) {
@@ -1061,6 +1091,20 @@ public class GUI {
 			for (int f = 0; f < workingString.size(); f++) {
 				if (workingString.get(f) != null) {	
 					((JLabel) strings.get(s).getComponent(f)).setText(workingString.get(f).noteName);
+					((JLabel) strings.get(s).getComponent(f)).setBackground(colors.get(fretboard.MusicalNotes.indexOf(workingString.get(f).noteName)));
+				}
+			}
+		}
+	}
+	
+	public static void clearLabels(List<List<GuitarNote>> relevantCells) {	
+		Color bg = new Color(255, 255, 255);
+		for (int s = 0; s < relevantCells.size(); s++) {
+			List<GuitarNote> workingString = relevantCells.get(s);
+			for (int f = 0; f < workingString.size(); f++) {
+				if (workingString.get(f) != null) {	
+					((JLabel) strings.get(s).getComponent(f)).setText("");
+					((JLabel) strings.get(s).getComponent(f)).setBackground(bg);;
 				}
 			}
 		}
